@@ -15,4 +15,8 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0002-add-two-numbers](https://github.com/shashwatbuilds23/GitCode/tree/master/0002-add-two-numbers) |
+## Database
+|  |
+| ------- |
+| [0182-duplicate-emails](https://github.com/shashwatbuilds23/GitCode/tree/master/0182-duplicate-emails) |
 <!---LeetCode Topics End-->
