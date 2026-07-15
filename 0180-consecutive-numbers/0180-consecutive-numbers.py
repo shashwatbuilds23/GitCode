@@ -1,17 +1,19 @@
+
 import pandas as pd
 
 def consecutive_numbers(logs: pd.DataFrame) -> pd.DataFrame:
-    # Sort by id to ensure proper chronological/consecutive order
-    logs = logs.sort_values(by='id')
-    
-    # Get the numbers from the next row and the row after next
-    next_num = logs['num'].shift(-1)
-    next_next_num = logs['num'].shift(-2)
-    
-    # Filter where current, next, and next-next values match
-    is_consecutive = (logs['num'] == next_num) & (logs['num'] == next_next_num)
-    
-    # Extract unique values and format the output DataFrame
-    unique_nums = logs.loc[is_consecutive, 'num'].unique()
-    
-    return pd.DataFrame({'ConsecutiveNums': unique_nums}) 
+    z = list(logs['num'].values)
+    it = []
+    if len(z) > 0:
+        c =  1
+        for i in range(1, len(z)):
+            if z[i] == z[i-1]:
+                c += 1
+            else:
+                c = 1
+            if c == 3:
+                it.append(z[i-1])
+
+    df = pd.DataFrame({'ConsecutiveNums': [*list(set(it))]})
+        
+    return df
